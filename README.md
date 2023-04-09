@@ -10,6 +10,8 @@ npm install --only-lock
 
 ### Configurar las variables de entorno
 
+Generar el archivo `.env`:
+
 ```shell
 cp .env.example .env
 ```
@@ -18,4 +20,10 @@ cp .env.example .env
 
 ```shell
 docker-compose up -d
+```
+
+### Iniciar la aplicación
+
+```shell
+npm run start:dev
 ```
