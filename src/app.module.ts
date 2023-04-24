@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import config from './common/config';
 import { TypeOrmConfigService } from './common/typeorm/typeorm.service';
+import { ProductsModule } from './products/products.module';
 
 @Module({
     imports: [
@@ -15,6 +16,7 @@ import { TypeOrmConfigService } from './common/typeorm/typeorm.service';
         TypeOrmModule.forRootAsync({
             useClass: TypeOrmConfigService,
         }),
+        ProductsModule,
     ],
     controllers: [AppController],
     providers: [AppService],
