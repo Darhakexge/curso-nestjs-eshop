@@ -20,11 +20,15 @@ export class ProductsService {
     }
 
     async findAll() {
-        return `This action returns all products`;
+        return await this.productRepository.find();
     }
 
     async findOne(id: string) {
-        return `This action returns a #${id} product`;
+        const product = await this.productRepository.findOneOrFail({
+            where: { id },
+        });
+
+        return product;
     }
 
     async update(id: string, updateProductDto: UpdateProductDto) {
@@ -32,6 +36,7 @@ export class ProductsService {
     }
 
     async remove(id: string) {
-        return `This action removes a #${id} product`;
+        const product = await this.findOne(id);
+        this.productRepository.remove(product);
     }
 }
